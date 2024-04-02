@@ -5,7 +5,10 @@ const databaseUrl = process.env.DATABASE_URL;
 
 module.exports = async () => {
   try {
-    await mongoose.connect(databaseUrl, { useNewUrlParser: true });
+    await mongoose.connect(databaseUrl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("Database successfully connected");
   } catch (error) {
     console.error(`Database Connectivity Error: ${error}`);
